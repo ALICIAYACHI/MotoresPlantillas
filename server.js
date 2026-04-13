@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const ejs = require('ejs');
 const pug = require('pug');
 const hbs = require('hbs');
@@ -19,10 +20,10 @@ app.get('/pug', (req, res) => {
 // ─── HBS ────────────────────────────────────────────────────────
 app.get('/hbs', (req, res) => {
   const filePath = path.join(__dirname, 'views/hbs/index.hbs');
-  hbs.__express(filePath, { mensaje, motor: 'Handlebars (HBS)' }, (err, html) => {
-    if (err) return res.status(500).send(err.message);
-    res.send(html);
-  });
+  const source = fs.readFileSync(filePath, 'utf8');
+  const template = hbs.handlebars.compile(source);
+  const html = template({ mensaje, motor: 'Handlebars (HBS)' });
+  res.send(html);
 });
 
 // ─── EJS ────────────────────────────────────────────────────────
