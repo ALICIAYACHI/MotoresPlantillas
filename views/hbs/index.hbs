@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HBS - Motor de Plantilla</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff8f2;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 3rem 4rem;
+      text-align: center;
+      border: 1px solid #fde0c0;
+      border-top: 6px solid #F08030;
+      max-width: 520px;
+      width: 90%;
+    }
+    .badge {
+      display: inline-block;
+      background: #fff0e0;
+      color: #c05000;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #F08030;
+      margin-bottom: 1rem;
+    }
+    p.desc {
+      color: #888;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    code {
+      display: block;
+      background: #fff5eb;
+      border: 1px solid #fdd5a0;
+      border-radius: 8px;
+      padding: 0.8rem 1.2rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #9a4500;
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    a {
+      color: #F08030;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">⚙️ Motor: {{motor}}</span>
+    <h1>{{mensaje}}</h1>
+    <p class="desc">
+      Este mensaje fue renderizado usando <strong>Handlebars (HBS)</strong>,
+      un motor de plantillas que usa la sintaxis <em>doble llave</em> para interpolar variables.
+    </p>
+    <code>&lt;h1&gt;{{mensaje}}&lt;/h1&gt;</code>
+    <a href="/">← Volver al inicio</a>
+  </div>
+</body>
+</html>

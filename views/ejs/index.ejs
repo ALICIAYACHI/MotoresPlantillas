@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EJS - Motor de Plantilla</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f8ff;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 3rem 4rem;
+      text-align: center;
+      border: 1px solid #c5dff5;
+      border-top: 6px solid #3A8FD4;
+      max-width: 520px;
+      width: 90%;
+    }
+    .badge {
+      display: inline-block;
+      background: #e8f4ff;
+      color: #1a5f9e;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #3A8FD4;
+      margin-bottom: 1rem;
+    }
+    p.desc {
+      color: #888;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    code {
+      display: block;
+      background: #f0f8ff;
+      border: 1px solid #b0d5f0;
+      border-radius: 8px;
+      padding: 0.8rem 1.2rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #1a5f9e;
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    a {
+      color: #3A8FD4;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">⚙️ Motor: <%= motor %></span>
+    <h1><%= mensaje %></h1>
+    <p class="desc">
+      Este mensaje fue renderizado usando <strong>EJS</strong>
+      (Embedded JavaScript), un motor de plantillas que permite incrustar
+      código JavaScript directamente en HTML con la etiqueta <em>&lt;% %&gt;</em>.
+    </p>
+    <code>&lt;h1&gt;&lt;%= mensaje %&gt;&lt;/h1&gt;</code>
+    <a href="/">← Volver al inicio</a>
+  </div>
+</body>
+</html>

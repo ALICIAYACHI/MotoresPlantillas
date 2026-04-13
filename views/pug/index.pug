@@ -1,0 +1,78 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Pug - Motor de Plantilla
+    style.
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: system-ui, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f9f5ff;
+      }
+      .card {
+        background: white;
+        border-radius: 16px;
+        padding: 3rem 4rem;
+        text-align: center;
+        border: 1px solid #e8d5f5;
+        border-top: 6px solid #A44FBF;
+        max-width: 520px;
+        width: 90%;
+      }
+      .badge {
+        display: inline-block;
+        background: #f3e5ff;
+        color: #7a1fa0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 4px 14px;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      h1 {
+        font-size: 1.8rem;
+        color: #A44FBF;
+        margin-bottom: 1rem;
+      }
+      p.desc {
+        color: #888;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      code {
+        display: block;
+        background: #f8f0ff;
+        border: 1px solid #e0c8f5;
+        border-radius: 8px;
+        padding: 0.8rem 1.2rem;
+        font-family: monospace;
+        font-size: 0.85rem;
+        color: #6b21a8;
+        text-align: left;
+        margin-bottom: 1.5rem;
+      }
+      a {
+        color: #A44FBF;
+        font-size: 0.85rem;
+        text-decoration: none;
+      }
+      a:hover { text-decoration: underline; }
+  body
+    .card
+      span.badge ⚙️ Motor: #{motor}
+      h1 #{mensaje}
+      p.desc
+        | Este mensaje fue renderizado usando 
+        strong Pug
+        | , un motor de plantillas con sintaxis limpia basada en indentación.
+      code
+        | h1 #{mensaje}
+      a(href="/") ← Volver al inicio
