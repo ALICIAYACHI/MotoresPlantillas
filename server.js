@@ -3,7 +3,7 @@ const path = require('path');
 const hbs = require('hbs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const mensaje = 'Bienvenidos a los motores de plantilla';
 
