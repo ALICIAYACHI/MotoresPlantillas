@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const ejs = require('ejs');
+const pug = require('pug');
 const hbs = require('hbs');
 
 const app = express();
@@ -7,24 +9,32 @@ const PORT = process.env.PORT || 3000;
 
 const mensaje = 'Bienvenidos a los motores de plantilla';
 
+// ─── PUG ────────────────────────────────────────────────────────
 app.get('/pug', (req, res) => {
-  app.set('view engine', 'pug');
-  app.set('views', path.join(__dirname, 'views/pug'));
-  res.render('index', { mensaje, motor: 'Pug', color: '#A44FBF' });
+  const filePath = path.join(__dirname, 'views/pug/index.pug');
+  const html = pug.renderFile(filePath, { mensaje, motor: 'Pug' });
+  res.send(html);
 });
 
+// ─── HBS ────────────────────────────────────────────────────────
 app.get('/hbs', (req, res) => {
-  app.set('view engine', 'hbs');
-  app.set('views', path.join(__dirname, 'views/hbs'));
-  res.render('index', { mensaje, motor: 'Handlebars (HBS)', color: '#F08030' });
+  const filePath = path.join(__dirname, 'views/hbs/index.hbs');
+  hbs.__express(filePath, { mensaje, motor: 'Handlebars (HBS)' }, (err, html) => {
+    if (err) return res.status(500).send(err.message);
+    res.send(html);
+  });
 });
 
+// ─── EJS ────────────────────────────────────────────────────────
 app.get('/ejs', (req, res) => {
-  app.set('view engine', 'ejs');
-  app.set('views', path.join(__dirname, 'views/ejs'));
-  res.render('index', { mensaje, motor: 'EJS', color: '#3A8FD4' });
+  const filePath = path.join(__dirname, 'views/ejs/index.ejs');
+  ejs.renderFile(filePath, { mensaje, motor: 'EJS' }, (err, html) => {
+    if (err) return res.status(500).send(err.message);
+    res.send(html);
+  });
 });
 
+// ─── INICIO ─────────────────────────────────────────────────────
 app.get('/', (req, res) => {
   res.send(`
     <!DOCTYPE html>
